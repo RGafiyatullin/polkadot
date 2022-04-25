@@ -27,7 +27,6 @@ use polkadot_node_subsystem::{
 	SubsystemError, SubsystemResult, SubsystemSender,
 };
 use polkadot_node_subsystem_util::{
-	metrics::{self, prometheus},
 	request_availability_cores, request_persisted_validation_data, request_validation_code,
 	request_validation_code_hash, request_validators,
 };
@@ -43,6 +42,9 @@ mod error;
 
 #[cfg(test)]
 mod tests;
+
+mod metrics;
+use self::metrics::Metrics;
 
 const LOG_TARGET: &'static str = "parachain::collation-generation";
 
